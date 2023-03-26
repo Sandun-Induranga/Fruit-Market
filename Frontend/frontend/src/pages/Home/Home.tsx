@@ -7,16 +7,20 @@ export default class Home extends Component {
         <aside className="p-6 h-full">
           <section className="w-2/3 h-full flex flex-col justify-center items-center">
             <div className="w-1/2 flex flex-col">
-              <h1>Fresh Fruits</h1>
-              <p className="">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-                totam odit numquam facere est dignissimos, quidem laboriosam ex
-                cupiditate neque incidunt, a ab voluptates consequatur minus
-                minima, temporibus repellendus aut.
+              <h1 className="text-7xl text-green-800 mb-10">Fresh Fruits</h1>
+              <p className="text-3xl text-green-600">
+                Lorem ipsum dolor sit amet consectetur adipisicing
+                elit.molestiae quas vel sint commodi repudiandae
               </p>
             </div>
-            <button>Login</button>
-            <button>Sign Up</button>
+            <div className="flex gap-36 mt-10 text-2xl">
+              <button className="bg-green-800 w-32 py-3 rounded-lg text-white">
+                Login
+              </button>
+              <button className="bg-white border-2 border-green-800 w-32 py-3 rounded-lg text-green-800">
+                Sign Up
+              </button>
+            </div>
           </section>
           <section className="w-1/2"></section>
         </aside>
