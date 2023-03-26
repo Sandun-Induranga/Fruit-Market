@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 export default class Header extends Component {
   render() {
     return (
-      <div className="w-full h-28 flex items-center p-6">
+      <div className="w-full h-28 flex items-center p-6 fixed top-0 bg-white">
         <section className="w-1/2 h-full flex items-center">
           <img src={logo} alt="" />
         </section>
