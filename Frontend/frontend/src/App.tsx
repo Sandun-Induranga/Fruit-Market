@@ -1,17 +1,16 @@
-import React from "react";
-import logo from "./logo.svg";
+import { Component } from "react";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Home />
-      <About />
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Home />
+        <About />
+      </div>
+    );
+  }
 }
-
-export default App;
