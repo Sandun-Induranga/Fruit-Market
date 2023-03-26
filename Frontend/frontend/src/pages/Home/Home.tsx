@@ -9,7 +9,7 @@ export default class Home extends Component {
           <section className="w-full h-full flex flex-col mt-36 items-center">
             <div className="w-1/2 flex flex-col">
               <h1 className="text-7xl text-green-800 mb-20">Fresh Fruits</h1>
-              <p className="text-2xl text-green-600">
+              <p className="text-xl text-green-600">
                 Lorem ipsum dolor sit amet consectetur adipisicing
                 elit.molestiae quas vel sint commodi repudiandae
               </p>
