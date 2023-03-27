@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Fruit from "../../components/Fruit";
+import Fruit from "../../../components/Fruit";
 
 export default class Products extends Component {
   render() {
