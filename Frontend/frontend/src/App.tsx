@@ -1,9 +1,9 @@
 import { Component } from "react";
 import Header from "./components/Header";
-import Home from "./pages/Main/Home";
-import About from "./pages/Main/About";
-import Products from "./pages/Main/Products";
-import Contact from "./pages/Main/Contact";
+import Home from "./components/Home";
+import About from "./components/About";
+import Products from "./components/Products";
+import Contact from "./components/Contact";
 
 export default class App extends Component {
   render() {
