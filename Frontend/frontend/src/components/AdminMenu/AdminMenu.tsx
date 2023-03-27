@@ -7,7 +7,7 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 export default class AdminMenu extends Component {
   render() {
     return (
-      <div className="h-screen bg-white w-1/6 shadow-lg pt-20 fixed top-0">
+      <div className="h-screen bg-white w-60 shadow-lg pt-20 fixed top-0">
         <nav className="flex flex-col py-20 pl-10 gap-8 text-green-800 text-lg">
           <a href="#" className="flex items-center gap-2">
             <HomeIcon /> Home
