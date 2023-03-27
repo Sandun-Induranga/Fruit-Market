@@ -9,18 +9,18 @@ export default class AdminMenu extends Component {
     return (
       <div className="h-screen bg-white w-1/6 shadow-lg pt-20">
         <nav className="flex flex-col py-20 pl-10 gap-8 text-green-800 text-lg">
-          <a href="#">
+          <a href="#" className="flex items-center gap-2">
             <HomeIcon /> Home
           </a>
-          <a href="#">
+          <a href="#" className="flex items-center gap-2">
             <CardGiftcardIcon />
             Products
           </a>
-          <a href="#">
+          <a href="#" className="flex items-center gap-2">
             <BusinessCenterIcon />
             Orders
           </a>
-          <a href="#">
+          <a href="#" className="flex items-center gap-2">
             <AssessmentIcon />
             Reports
           </a>
