@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @ToString
 public class Fruit {
     @Id
-    private String id;
+    private String fruitId;
     private String name;
     private BigDecimal qtyOnHand;
     private BigDecimal unitPrice;

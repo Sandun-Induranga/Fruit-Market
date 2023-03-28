@@ -5,23 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class Customer {
+public class Driver {
     @Id
     private String nic;
     private String name;
     private String address;
     private String contact;
     private String email;
-    @OneToOne(cascade = CascadeType.ALL)
-    private User user;
 }

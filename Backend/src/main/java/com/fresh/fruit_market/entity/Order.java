@@ -23,6 +23,7 @@ public class Order {
     private Customer nic;
     private LocalDate date;
     private LocalTime time;
+    private String location;
     private String status;
     private BigDecimal cost;
 }
