@@ -7,8 +7,8 @@ export default class Content extends Component {
   render() {
     return (
       <div>
-        {/* <Main /> */}
-        <Admin />
+        <Main />
+        {/* <Admin /> */}
       </div>
     );
   }

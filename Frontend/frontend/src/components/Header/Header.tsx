@@ -6,7 +6,7 @@ export default class Header extends Component {
   setRequest = () => {
     axios({
       method: "get",
-      url: "test",
+      url: "http://localhost:8080/fresh/customer",
     })
       .then(function (res) {
         alert("OK");

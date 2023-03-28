@@ -17,6 +17,7 @@ public class CustomerController {
 
     @GetMapping
     public String test() {
+        System.out.println("Come");
         return "test";
     }
 
