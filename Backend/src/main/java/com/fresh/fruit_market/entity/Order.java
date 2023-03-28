@@ -10,6 +10,11 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+/**
+ * @author : Sandun Induranga
+ * @since : 0.1.0
+ **/
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
