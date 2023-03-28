@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
 
     @GetMapping
-    public String test(){
+    public String test() {
         return "test";
     }
 
