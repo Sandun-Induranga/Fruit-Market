@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @author: Sandun Induranga
- * @since: 0.1.0
+ * @author : Sandun Induranga
+ * @since : 0.1.0
  **/
 
 @AllArgsConstructor

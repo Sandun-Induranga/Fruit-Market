@@ -26,7 +26,7 @@ public class Payment {
     private Integer paymentId;
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name = "orderId", referencedColumnName = "orderId", nullable = false)
-    private Order orderId;
+    private Orders orderId;
     private LocalDate date;
     private LocalTime time;
     private BigDecimal total;

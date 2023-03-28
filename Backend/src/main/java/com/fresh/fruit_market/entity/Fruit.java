@@ -25,4 +25,5 @@ public class Fruit {
     private String name;
     private BigDecimal qtyOnHand;
     private BigDecimal unitPrice;
+    private String fruitImage;
 }

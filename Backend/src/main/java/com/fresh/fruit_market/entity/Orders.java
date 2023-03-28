@@ -20,7 +20,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Data
 @ToString
-public class Order {
+public class Orders {
     @Id
     private String orderId;
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.DETACH})
