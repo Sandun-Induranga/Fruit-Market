@@ -1,10 +1,40 @@
 package com.fresh.fruit_market.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@ToString
 public class OrderDetail {
+    @Id
     private String orderId;
-    public String fruitId;
+    @Id
+    private String fruitId;
+    @Id
+    private String nic;
     private BigDecimal qty;
     private BigDecimal unitPrice;
+
+    @ManyToOne
+    @JoinColumn(name = "orderId", referencedColumnName = "orderId", insertable = false, updatable = false)
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name = "fruitId", referencedColumnName = "fruitId", insertable = false, updatable = false)
+    private Fruit fruit;
+
+    @ManyToOne
+    @JoinColumn(name = "nic", referencedColumnName = "nic", insertable = false, updatable = false)
+    private Driver driver;
 }
