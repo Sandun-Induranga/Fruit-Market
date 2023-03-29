@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { Route, Routes } from "react-router-dom";
 import Admin from "../../pages/Admin";
+import Login from "../../pages/Login";
 import Main from "../../pages/Main";
-import Header from "../Header";
 
 export default class Content extends Component {
   render() {
@@ -11,6 +11,7 @@ export default class Content extends Component {
         <Routes>
           <Route path="/" element={<Main />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
+          <Route path="/login" element={<Login />}></Route>
         </Routes>
       </div>
     );

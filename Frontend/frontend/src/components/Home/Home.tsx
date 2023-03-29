@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 import homeImage from "../../assets/home-image.png";
 
 export default class Home extends Component {
@@ -15,9 +16,12 @@ export default class Home extends Component {
               </p>
             </div>
             <div className="mt-16 text-xl w-1/2 flex gap-12">
-              <button className="bg-green-800 border-2 border-green-800 w-28 py-2 rounded-lg text-white hover:bg-white hover:text-green-800">
-                Login
-              </button>
+              <Link to={"/login"}>
+                <button className="bg-green-800 border-2 border-green-800 w-28 py-2 rounded-lg text-white hover:bg-white hover:text-green-800">
+                  Login
+                </button>
+              </Link>
+
               <button className="bg-white border-2 border-green-800 w-28 py-2 rounded-lg text-green-800 hover:bg-green-800 hover:text-white">
                 Sign Up
               </button>
