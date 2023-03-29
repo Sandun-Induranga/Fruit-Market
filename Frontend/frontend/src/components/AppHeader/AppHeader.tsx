@@ -1,6 +1,7 @@
 import { Component } from "react";
 import logo from "../../assets/logo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { Link } from "react-router-dom";
 
 export default class AppHeader extends Component {
   render() {
@@ -10,11 +11,11 @@ export default class AppHeader extends Component {
           <img src={logo} className="h-full" alt="" />
         </section>
         <section className="w-1/2 h-full text-xl text-green-800 flex justify-end gap-10 items-center">
-          <a href="#">
+          <Link to={"/login"}>
             <p className="flex items-center">
               <LogoutIcon /> Logout
             </p>
-          </a>
+          </Link>
         </section>
       </div>
     );
