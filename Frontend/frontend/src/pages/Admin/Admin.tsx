@@ -1,7 +1,7 @@
 import { Component } from "react";
 import AdminMenu from "../../components/AdminMenu";
 import AppHeader from "../../components/AppHeader";
-import Dashboard from "./Dashboard";
+import AdminContent from "./AdminContent";
 
 export default class Admin extends Component {
   render() {
@@ -9,7 +9,7 @@ export default class Admin extends Component {
       <div className="bg-green-50">
         <AppHeader />
         <AdminMenu />
-        <Dashboard />
+        <AdminContent />
       </div>
     );
   }
