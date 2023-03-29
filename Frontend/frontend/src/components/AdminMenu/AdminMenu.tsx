@@ -3,6 +3,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import { NavLink } from "react-router-dom";
 
 export default class AdminMenu extends Component {
   render() {
@@ -12,6 +14,12 @@ export default class AdminMenu extends Component {
           <a href="#" className="flex items-center gap-2">
             <HomeIcon /> Home
           </a>
+          <NavLink to={"/admin/home"}>
+            <div className="flex items-center gap-2">
+              <SupportAgentIcon />
+              Customers
+            </div>
+          </NavLink>
           <a href="#" className="flex items-center gap-2">
             <CardGiftcardIcon />
             Products
