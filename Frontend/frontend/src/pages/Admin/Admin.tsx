@@ -2,6 +2,7 @@ import { Component } from "react";
 import AdminMenu from "../../components/AdminMenu";
 import AppHeader from "../../components/AppHeader";
 import AdminContent from "./AdminContent";
+import Dashboard from "./Dashboard";
 
 export default class Admin extends Component {
   render() {
@@ -10,6 +11,7 @@ export default class Admin extends Component {
         <AppHeader />
         <AdminMenu />
         <AdminContent />
+        <Dashboard />
       </div>
     );
   }
