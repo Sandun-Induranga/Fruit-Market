@@ -14,6 +14,7 @@ import Box from "@mui/material/Box";
 import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
 import { TextField } from "@mui/material";
+import axios from "axios";
 
 function createData(
   name: string,
@@ -52,7 +53,14 @@ const Customer = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert("Done");
+    axios
+      .get("http://localhost:8080/fresh/customer")
+      .then(function (response) {
+        alert("Done");
+      })
+      .catch(function (error) {
+        alert("Error");
+      });
   };
 
   return (

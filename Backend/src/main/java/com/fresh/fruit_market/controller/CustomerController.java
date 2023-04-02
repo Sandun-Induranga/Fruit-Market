@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class CustomerController {
 
-    @PostMapping
+    @GetMapping
     public String saveCustomer() {
         System.out.println("Successfully Saved..!");
         return "test";
