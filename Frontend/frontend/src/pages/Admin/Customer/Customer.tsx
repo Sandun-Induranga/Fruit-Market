@@ -14,8 +14,8 @@ import Box from "@mui/material/Box";
 import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
 import { TextField } from "@mui/material";
-import axios from "axios";
 import CustomerService from "../../../services/CustomerService";
+import { Customer } from "../../../types/Customer";
 
 function createData(
   name: string,
@@ -48,13 +48,22 @@ const rows = [
 ];
 
 const Customer = () => {
+  const [customer, setCustomer] = useState<Customer>({
+    nic: "",
+    name: "",
+    address: "",
+    contact: "",
+    email: "",
+    username: "",
+    password: "",
+  });
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    CustomerService.postCustomer;
+    let res = await CustomerService.postCustomer(formData);
   };
 
   return (
@@ -99,6 +108,7 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Customer NIC"
+                    onChange={(e) => {}}
                   />
                   <TextField
                     label="Customer Name"
@@ -107,6 +117,7 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Customer Name"
+                    onChange={(e) => {}}
                   />
                   <TextField
                     label="Address"
@@ -115,6 +126,7 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Address"
+                    onChange={(e) => {}}
                   />
                   <TextField
                     label="Contact"
@@ -123,6 +135,7 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Contact"
+                    onChange={(e) => {}}
                   />
                   <TextField
                     label="Email"
@@ -131,6 +144,7 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Email"
+                    onChange={(e) => {}}
                   />
                   <TextField
                     label="Username"
@@ -139,6 +153,7 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Username"
+                    onChange={(e) => {}}
                   />
                   <TextField
                     label="Password"
@@ -147,6 +162,7 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Password"
+                    onChange={(e) => {}}
                   />
                   <TextField
                     label="Confirm Password"
