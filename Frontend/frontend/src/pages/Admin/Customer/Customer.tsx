@@ -55,10 +55,10 @@ const Customer = () => {
     event.preventDefault();
     axios
       .get("http://localhost:8080/fresh/customer")
-      .then(function (response) {
+      .then(function (res) {
         alert("Done");
       })
-      .catch(function (error) {
+      .catch(function (err) {
         alert("Error");
       });
   };
