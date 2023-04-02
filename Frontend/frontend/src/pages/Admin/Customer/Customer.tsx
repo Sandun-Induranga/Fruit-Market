@@ -15,6 +15,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
 import { TextField } from "@mui/material";
 import axios from "axios";
+import CustomerService from "../../../services/CustomerService";
 
 function createData(
   name: string,
@@ -51,16 +52,9 @@ const Customer = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    axios
-      .get("http://localhost:8080/fresh/customer")
-      .then(function (res) {
-        alert("Done");
-      })
-      .catch(function (err) {
-        alert("Error");
-      });
+    CustomerService.postCustomer;
   };
 
   return (
