@@ -11,9 +11,9 @@ import AdminMenu from "../../../components/AdminMenu";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
+import { TextField } from "@mui/material";
 
 function createData(
   name: string,
@@ -45,10 +45,16 @@ const rows = [
   createData("Gingerbread", 356, 16.0, 49, 3.9),
 ];
 
-export default function Customer() {
+const Customer = () => {
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert("Done");
+  };
+
   return (
     <>
       <AppHeader />
@@ -76,18 +82,81 @@ export default function Customer() {
             }}
           >
             <Fade in={open}>
-              <Box className="absolute w-max h-max bg-white border-2 border-slate-400 rounded shadow-xl p-6 top-0 bottom-0 left-0 right-0 m-auto">
-                <Typography
-                  id="transition-modal-title"
-                  variant="h6"
-                  component="h2"
+              <Box className="absolute w-1/2 h-max bg-white border-2 border-slate-400 rounded-lg shadow-lg p-6 top-0 bottom-0 left-0 right-0 m-auto">
+                <h3 className="text-green-800 text-xl text-center">
+                  Manage Customer
+                </h3>
+                <form
+                  className="w-full grid grid-cols-2 gap-6 mt-6"
+                  onSubmit={handleSubmit}
                 >
-                  Text in a modal
-                </Typography>
-                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                  Duis mollis, est non commodo luctus, nisi erat porttitor
-                  ligula.
-                </Typography>
+                  <TextField
+                    label="Customer NIC"
+                    name="cusNic"
+                    type="text"
+                    color="success"
+                    fullWidth
+                    placeholder="Customer NIC"
+                  />
+                  <TextField
+                    label="Customer Name"
+                    name="cusName"
+                    type="text"
+                    color="success"
+                    fullWidth
+                    placeholder="Customer Name"
+                  />
+                  <TextField
+                    label="Address"
+                    name="cusAddress"
+                    type="text"
+                    color="success"
+                    fullWidth
+                    placeholder="Address"
+                  />
+                  <TextField
+                    label="Contact"
+                    name="cusContact"
+                    type="text"
+                    color="success"
+                    fullWidth
+                    placeholder="Contact"
+                  />
+                  <TextField
+                    label="Email"
+                    name="cusEmail"
+                    type="email"
+                    color="success"
+                    fullWidth
+                    placeholder="Email"
+                  />
+                  <TextField
+                    label="Username"
+                    name="cusUsername"
+                    type="text"
+                    color="success"
+                    fullWidth
+                    placeholder="Username"
+                  />
+                  <TextField
+                    label="Password"
+                    name="cusPassword"
+                    type="password"
+                    color="success"
+                    fullWidth
+                    placeholder="Password"
+                  />
+                  <TextField
+                    label="Confirm Password"
+                    type="password"
+                    color="success"
+                    fullWidth
+                    placeholder="Confirm Password"
+                  />
+                  <button className="py-2 bg-green-700 text-white rounded">
+                    <h6>Save Customer</h6>
+                  </button>
+                </form>
               </Box>
             </Fade>
           </Modal>
@@ -130,7 +199,9 @@ export default function Customer() {
       </div>
     </>
   );
-}
+};
 function setOpen(arg0: boolean) {
   throw new Error("Function not implemented.");
 }
+
+export default Customer;
