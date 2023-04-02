@@ -15,7 +15,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Fade from "@mui/material/Fade";
 import { TextField } from "@mui/material";
 import CustomerService from "../../../services/CustomerService";
-import { Customer } from "../../../types/Customer";
+import { CustomerData } from "../../../types/Customer";
 
 function createData(
   name: string,
@@ -48,7 +48,7 @@ const rows = [
 ];
 
 const Customer = () => {
-  const [customer, setCustomer] = useState<Customer>({
+  let customer: CustomerData = {
     nic: "",
     name: "",
     address: "",
@@ -56,14 +56,14 @@ const Customer = () => {
     email: "",
     username: "",
     password: "",
-  });
+  };
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    let res = await CustomerService.postCustomer(formData);
+    let res = await CustomerService.postCustomer(customer);
   };
 
   return (
@@ -108,7 +108,9 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Customer NIC"
-                    onChange={(e) => {}}
+                    onChange={(e) => {
+                      customer.nic = e.target.value;
+                    }}
                   />
                   <TextField
                     label="Customer Name"
@@ -117,7 +119,9 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Customer Name"
-                    onChange={(e) => {}}
+                    onChange={(e) => {
+                      customer.name = e.target.value;
+                    }}
                   />
                   <TextField
                     label="Address"
@@ -126,7 +130,9 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Address"
-                    onChange={(e) => {}}
+                    onChange={(e) => {
+                      customer.address = e.target.value;
+                    }}
                   />
                   <TextField
                     label="Contact"
@@ -135,7 +141,9 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Contact"
-                    onChange={(e) => {}}
+                    onChange={(e) => {
+                      customer.contact = e.target.value;
+                    }}
                   />
                   <TextField
                     label="Email"
@@ -144,7 +152,9 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Email"
-                    onChange={(e) => {}}
+                    onChange={(e) => {
+                      customer.email = e.target.value;
+                    }}
                   />
                   <TextField
                     label="Username"
@@ -153,7 +163,9 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Username"
-                    onChange={(e) => {}}
+                    onChange={(e) => {
+                      customer.username = e.target.value;
+                    }}
                   />
                   <TextField
                     label="Password"
@@ -162,7 +174,9 @@ const Customer = () => {
                     color="success"
                     fullWidth
                     placeholder="Password"
-                    onChange={(e) => {}}
+                    onChange={(e) => {
+                      customer.password = e.target.value;
+                    }}
                   />
                   <TextField
                     label="Confirm Password"

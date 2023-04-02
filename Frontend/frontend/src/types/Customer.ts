@@ -1,4 +1,4 @@
-export type Customer = {
+export type CustomerData = {
   nic: string;
   name: string;
   address: string;
