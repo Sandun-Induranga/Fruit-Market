@@ -4,7 +4,7 @@ class CustomerService {
   postCustomer = async (data: any) => {
     const promise = new Promise((resolve, reject) => {
       axios
-        .post("customer", data)
+        .post("http://localhost:8080/fresh/customer", data)
         .then((res) => {
           return resolve(res);
         })

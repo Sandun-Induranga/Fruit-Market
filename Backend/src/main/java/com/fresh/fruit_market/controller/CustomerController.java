@@ -1,5 +1,6 @@
 package com.fresh.fruit_market.controller;
 
+import com.fresh.fruit_market.dto.CustomerDTO;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class CustomerController {
 
-    @GetMapping
-    public String saveCustomer() {
-        System.out.println("Successfully Saved..!");
+    @PostMapping
+    public String saveCustomer(@RequestBody CustomerDTO customerDTO) {
+        System.out.println(customerDTO);
         return "test";
     }
 
