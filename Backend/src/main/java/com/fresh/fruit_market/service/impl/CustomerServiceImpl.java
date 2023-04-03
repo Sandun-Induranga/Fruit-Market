@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @author : Sandun Induranga
@@ -29,5 +30,10 @@ public class CustomerServiceImpl implements CustomerService {
     public void saveCustomer(CustomerDTO customerDTO) throws RuntimeException {
         if (!customerRepo.existsById(customerDTO.getNic())) customerRepo.save(mapper.map(customerDTO, Customer.class));
         else throw new RuntimeException("Customer Already Exits..!");
+    }
+
+    @Override
+    public List<CustomerDTO> getAllCustomers() throws RuntimeException {
+        return null;
     }
 }
