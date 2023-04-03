@@ -5,10 +5,12 @@ import com.fresh.fruit_market.entity.Customer;
 import com.fresh.fruit_market.repo.CustomerRepo;
 import com.fresh.fruit_market.service.CustomerService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,6 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomers() throws RuntimeException {
-        return null;
+        return mapper.map(customerRepo.findAll(), new TypeToken<ArrayList<CustomerDTO>>() {
+        }.getType());
     }
 }
