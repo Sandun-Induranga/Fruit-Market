@@ -1,6 +1,7 @@
 package com.fresh.fruit_market.service.impl;
 
 import com.fresh.fruit_market.dto.CustomerDTO;
+import com.fresh.fruit_market.entity.Customer;
 import com.fresh.fruit_market.repo.CustomerRepo;
 import com.fresh.fruit_market.service.CustomerService;
 import org.modelmapper.ModelMapper;
@@ -26,6 +27,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(CustomerDTO customerDTO) throws RuntimeException {
-
+        customerRepo.save(mapper.map(customerDTO, Customer.class));
     }
 }
