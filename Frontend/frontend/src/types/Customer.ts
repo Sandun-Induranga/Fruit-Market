@@ -1,3 +1,5 @@
+import { User } from "./User";
+
 export type CustomerData = {
   nic: string;
   name: string;
@@ -6,4 +8,5 @@ export type CustomerData = {
   email: string;
   username: string;
   password: string;
+  user: User;
 };

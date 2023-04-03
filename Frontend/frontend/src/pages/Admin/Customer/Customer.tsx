@@ -56,6 +56,7 @@ const Customer = () => {
     email: "",
     username: "",
     password: "",
+    user: { username: "", password: "", role: "CUSTOMER" },
   };
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
@@ -164,7 +165,7 @@ const Customer = () => {
                     fullWidth
                     placeholder="Username"
                     onChange={(e) => {
-                      customer.username = e.target.value;
+                      customer.user.username = e.target.value;
                     }}
                   />
                   <TextField
@@ -175,7 +176,7 @@ const Customer = () => {
                     fullWidth
                     placeholder="Password"
                     onChange={(e) => {
-                      customer.password = e.target.value;
+                      customer.user.password = e.target.value;
                     }}
                   />
                   <TextField
