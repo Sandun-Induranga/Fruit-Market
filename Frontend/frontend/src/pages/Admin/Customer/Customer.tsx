@@ -62,10 +62,21 @@ const Customer = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const loadData = async () => {
+    let res: any = await CustomerService.fetchCustomer();
+
+    console.log(res.data);
+    if (res.state === 200) {
+      console.log(res.data);
+    }
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     let res = await CustomerService.postCustomer(customer);
   };
+
+  loadData();
 
   return (
     <>

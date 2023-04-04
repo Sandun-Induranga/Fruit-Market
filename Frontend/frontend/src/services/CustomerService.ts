@@ -17,7 +17,7 @@ class CustomerService {
   fetchCustomer = async () => {
     const promise = new Promise((resolve, reject) => {
       axios
-        .post("http://localhost:8080/fresh/customer")
+        .get("http://localhost:8080/fresh/customer")
         .then((res) => {
           return resolve(res);
         })

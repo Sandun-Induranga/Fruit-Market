@@ -25,4 +25,9 @@ public class CustomerController {
         return new ResponseUtil("OK", "Successfully Registered..!", "");
     }
 
+    @GetMapping
+    public ResponseUtil getAllCustomers() {
+        return new ResponseUtil("OK", "Successfully Loaded..!", customerService.getAllCustomers());
+    }
+
 }
