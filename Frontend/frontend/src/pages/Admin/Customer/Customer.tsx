@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -17,37 +17,6 @@ import { TextField } from "@mui/material";
 import CustomerService from "../../../services/CustomerService";
 import { CustomerData } from "../../../types/Customer";
 
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
-) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
-let rows: CustomerData[];
-// = [
-// createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-// createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-// createData("Eclair", 262, 16.0, 24, 6.0),
-// createData("Cupcake", 305, 3.7, 67, 4.3),
-// createData("Gingerbread", 356, 16.0, 49, 3.9),
-// ];
-
 const Customer = () => {
   let customer: CustomerData = {
     nic: "",
@@ -62,22 +31,35 @@ const Customer = () => {
   const [open, setOpen] = useState<boolean>(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [data, setData] = useState<boolean>(false);
+  const [allCustomers, setAllCustomers] = useState<CustomerData[]>([customer]);
 
-  const loadData = async () => {
+  const getAllCustomer = async () => {
     let res: any = await CustomerService.fetchCustomer();
-
-    console.log(res.data);
-    if (res.state === 200) {
-      rows = res.data;
+    // console.log(res.data);
+    if (res.state == 200) {
+      setAllCustomers(res.data);
+      console.log(res.data);
     }
   };
+  useEffect(() => {
+    // (() => {
+    let res: any = CustomerService.fetchCustomer();
+    setAllCustomers(res.data);
+    // })();
+  }, []);
+
+  // const loadAllCustomers = async () => {
+  //   let res: any = CustomerService.fetchCustomer();
+  //   setAllCustomers(res.data);
+  // };
+
+  // loadAllCustomers();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     let res = await CustomerService.postCustomer(customer);
   };
-
-  loadData();
 
   return (
     <>
@@ -224,21 +206,25 @@ const Customer = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => (
-                  <TableRow
-                    key={row.nic}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="right">{row.address}</TableCell>
-                    <TableCell align="right">{row.contact}</TableCell>
-                    <TableCell align="right">{row.email}</TableCell>
-                    <TableCell align="right">{row.user.username}</TableCell>
-                    <TableCell align="right">{row.user.password}</TableCell>
-                  </TableRow>
-                ))}
+                {allCustomers != null
+                  ? allCustomers.map((row: CustomerData) => (
+                      <TableRow
+                        key={row.nic}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          {row.name}
+                        </TableCell>
+                        <TableCell align="right">{row.address}</TableCell>
+                        <TableCell align="right">{row.contact}</TableCell>
+                        <TableCell align="right">{row.email}</TableCell>
+                        <TableCell align="right">{row.user.username}</TableCell>
+                        <TableCell align="right">{row.user.password}</TableCell>
+                      </TableRow>
+                    ))
+                  : "Table is Empty"}
               </TableBody>
             </Table>
           </TableContainer>
@@ -247,8 +233,5 @@ const Customer = () => {
     </>
   );
 };
-function setOpen(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}
 
 export default Customer;
