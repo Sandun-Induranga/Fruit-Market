@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: discovery-server
+
+  #this is for config-client
+  config:
+    import: optional:configserver:http://localhost:8085/
+
+server:
+  port: 8761
+
+#this is for eureka server
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+#this is for actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
