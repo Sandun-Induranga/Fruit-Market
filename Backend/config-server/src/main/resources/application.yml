@@ -1,0 +1,24 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: config-server
+
+  #this is for config server to allocate where we put configuration on GitHub - location
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Sandun-Induranga/Micro-Service-Configurations-For-Fruit-Market.git
+        default-label: master
+
+
+#this is for eureka client
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+    healthcheck:
+      enabled: true
