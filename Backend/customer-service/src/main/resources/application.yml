@@ -16,8 +16,8 @@ spring:
     show-sql: true
 
 #this is for config server client
-#  config:
-#    import: optional:configserver:http://localhost:8085/
+  config:
+    import: optional:configserver:http://localhost:8085/
 
 server:
   port: 8081
