@@ -20,15 +20,13 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void saveFruitImage(MultipartFile file) throws RuntimeException {
         try {
-            String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+            String projectPath = "/media/sandu/0559F5C021740317/GDSE/Project_Zone/IdeaProjects/Fruit-Market/Frontend/frontend/src/assets";
             File uploadsDir = new File(projectPath + "/uploads");
             uploadsDir.mkdir();
             file.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + file.getOriginalFilename()));
             System.out.println(new File(uploadsDir.getAbsolutePath() + "/" + file.getOriginalFilename()));
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
