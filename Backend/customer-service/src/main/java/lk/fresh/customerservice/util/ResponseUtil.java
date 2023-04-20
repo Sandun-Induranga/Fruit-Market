@@ -1,4 +1,4 @@
-package lk.fresh.customerservice.dto;
+package lk.fresh.customerservice.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,8 +14,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @Data
 @ToString
-public class UserDTO {
-    private String username;
-    private String password;
-    private String role;
+public class ResponseUtil {
+    private String state;
+    private String message;
+    private Object data;
 }
