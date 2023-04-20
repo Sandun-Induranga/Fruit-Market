@@ -2,6 +2,8 @@ package lk.fresh.customerservice.service.impl;
 
 import lk.fresh.customerservice.dto.CustomerDTO;
 import lk.fresh.customerservice.entity.Customer;
+import lk.fresh.customerservice.repo.CustomerRepo;
+import lk.fresh.customerservice.service.CustomerService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class CustomerServiceImpl {
+public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepo customerRepo;
 
