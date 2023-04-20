@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Component, useEffect, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -16,6 +16,7 @@ import Fade from "@mui/material/Fade";
 import { TextField } from "@mui/material";
 import CustomerService from "../../../services/CustomerService";
 import { CustomerData } from "../../../types/Customer";
+import axios from "axios";
 
 const Customer = () => {
   let customer: CustomerData = {
@@ -32,29 +33,34 @@ const Customer = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [data, setData] = useState<boolean>(false);
-  const [allCustomers, setAllCustomers] = useState<CustomerData[]>([customer]);
+  const [allCustomers, setAllCustomers] = useState<CustomerData[]>([
+    customer,
+    customer,
+  ]);
 
-  const getAllCustomer = async () => {
-    let res: any = await CustomerService.fetchCustomer();
-    // console.log(res.data);
-    if (res.state == 200) {
-      setAllCustomers(res.data);
-      console.log(res.data);
-    }
+  const getAllCustomers = async () => {
+    const result = await axios.get(`http://localhost:8080/fresh/customer`);
+    let cus = result.data.map((data: CustomerData) => ({
+      nic: data.nic,
+      name: data.name,
+      address: data.address,
+      contact: data.contact,
+      email: data.email,
+      username: data.user.username,
+      password: data.user.password,
+      user: {
+        username: data.user.username,
+        password: data.user.password,
+        role: "CUSTOMER",
+      },
+    }));
+    setAllCustomers(cus);
+    console.log(cus);
   };
   useEffect(() => {
-    // (() => {
-    let res: any = CustomerService.fetchCustomer();
-    setAllCustomers(res.data);
-    // })();
+    getAllCustomers();
+    console.log(allCustomers);
   }, []);
-
-  // const loadAllCustomers = async () => {
-  //   let res: any = CustomerService.fetchCustomer();
-  //   setAllCustomers(res.data);
-  // };
-
-  // loadAllCustomers();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
