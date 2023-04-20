@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 /**
  * @author : Sandun Induranga
@@ -19,8 +20,15 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void saveFruitImage(MultipartFile file) throws RuntimeException {
         try {
-            file.transferTo(new File("http://localhost:8080/fresh" + file.getOriginalFilename()));
+            String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+            File uploadsDir = new File(projectPath + "/uploads");
+            uploadsDir.mkdir();
+            file.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + file.getOriginalFilename()));
+            System.out.println(new File(uploadsDir.getAbsolutePath() + "/" + file.getOriginalFilename()));
+
         } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }
