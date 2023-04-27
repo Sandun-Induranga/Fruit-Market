@@ -29,5 +29,4 @@ public class Orders {
     private LocalDate date;
     private LocalTime time;
     private BigDecimal cost;
-    private ArrayList<OrderDetailDTO> orderDetails;
 }
