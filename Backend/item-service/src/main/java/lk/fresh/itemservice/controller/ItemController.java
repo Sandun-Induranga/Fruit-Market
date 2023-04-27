@@ -17,6 +17,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api/v1/item")
 public class ItemController {
+
     @Autowired
     ItemService itemService;
 
@@ -39,7 +40,7 @@ public class ItemController {
     }
 
     @GetMapping
-    public ResponseUtil getAllItems(){
+    public ResponseUtil getAllItems() {
         return new ResponseUtil("OK", "Successfully Loaded..!", itemService.getAllItems());
     }
 
