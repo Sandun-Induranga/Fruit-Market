@@ -4,6 +4,7 @@ import lk.fresh.itemservice.dto.ItemDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author : Sandun Induranga
@@ -12,6 +13,11 @@ import java.io.IOException;
 
 public interface ItemService {
     public void saveFruitImage(MultipartFile file) throws RuntimeException, IOException;
+
     public void saveItem(ItemDTO itemDTO) throws RuntimeException;
+
+    public List<ItemDTO> getAllItems() throws RuntimeException;
+
     public void updateItem(ItemDTO itemDTO) throws RuntimeException;
+
 }

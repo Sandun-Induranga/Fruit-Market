@@ -5,6 +5,7 @@ import lk.fresh.itemservice.entity.Item;
 import lk.fresh.itemservice.repo.ItemRepo;
 import lk.fresh.itemservice.service.ItemService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.transaction.Transactional;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author : Sandun Induranga
@@ -45,6 +48,12 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void saveItem(ItemDTO itemDTO) throws RuntimeException {
         itemRepo.save(mapper.map(itemDTO, Item.class));
+    }
+
+    @Override
+    public List<ItemDTO> getAllItems() throws RuntimeException {
+        return mapper.map(itemRepo.findAll(), new TypeToken<ArrayList<ItemDTO>>() {
+        }.getType());
     }
 
     @Override
