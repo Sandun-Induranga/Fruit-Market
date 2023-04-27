@@ -34,4 +34,10 @@ public class CustomerController {
         customerService.saveCustomer(customerDTO);
         return new ResponseUtil("OK", "Successfully Updated..!", "");
     }
+
+    @DeleteMapping
+    public ResponseUtil deleteCustomer(@RequestParam String id) {
+        customerService.deleteCustomer(id);
+        return new ResponseUtil("OK", "Successfully Deleted..!", "");
+    }
 }
