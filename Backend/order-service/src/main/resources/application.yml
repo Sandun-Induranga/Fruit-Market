@@ -1,0 +1,44 @@
+#this is for datasource
+spring:
+  datasource:
+    username: sandu
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/OrderManageForFruitMarket?createDatabaseIfNotExist=true
+  #this is for application name
+  application:
+    name: order-service
+  #this is for jpa
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    generate-ddl: true
+    show-sql: true
+
+  #this is for config server client
+  config:
+    import: optional:configserver:http://localhost:8085/
+
+server:
+  port: 8083
+
+info:
+  app:
+    name: ${spring.application.name}
+
+#this is for eureka client
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka}
+    healthcheck:
+      enabled: true
+
+#this is for actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+

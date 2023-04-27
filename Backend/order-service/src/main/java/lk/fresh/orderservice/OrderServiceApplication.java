@@ -1,4 +1,4 @@
-package com.example.orderservice;
+package lk.fresh.orderservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
