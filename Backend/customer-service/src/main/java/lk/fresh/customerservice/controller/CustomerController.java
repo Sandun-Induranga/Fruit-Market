@@ -28,4 +28,10 @@ public class CustomerController {
     public ResponseUtil getAllCustomers() {
         return new ResponseUtil("OK", "Successfully Loaded..!", customerService.getAllCustomers());
     }
+
+    @PutMapping
+    public ResponseUtil updateCustomer(@RequestBody CustomerDTO customerDTO) {
+        customerService.saveCustomer(customerDTO);
+        return new ResponseUtil("OK", "Successfully Updated..!", "");
+    }
 }

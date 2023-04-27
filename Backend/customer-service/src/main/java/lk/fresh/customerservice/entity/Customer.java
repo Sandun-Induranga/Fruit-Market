@@ -20,7 +20,7 @@ import javax.persistence.Id;
 @ToString
 public class Customer {
     @Id
-    private String nic;
+    private String id;
     private String name;
     private String address;
     private String contact;
