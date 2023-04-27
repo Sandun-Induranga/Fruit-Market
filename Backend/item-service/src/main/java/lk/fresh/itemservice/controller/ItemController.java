@@ -39,8 +39,14 @@ public class ItemController {
     }
 
     @PutMapping
-    public ResponseUtil updateItem(@RequestBody ItemDTO itemDTO){
+    public ResponseUtil updateItem(@RequestBody ItemDTO itemDTO) {
         itemService.updateItem(itemDTO);
         return new ResponseUtil("OK", "Successfully Updated..!", "");
+    }
+
+    @DeleteMapping
+    public ResponseUtil deleteItem(@RequestParam String code) {
+        itemService.deleteItem(code);
+        return new ResponseUtil("OK", "Successfully Deleted..!", "");
     }
 }
