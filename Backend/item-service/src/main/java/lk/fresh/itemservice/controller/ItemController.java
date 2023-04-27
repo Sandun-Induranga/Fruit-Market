@@ -1,6 +1,8 @@
 package lk.fresh.itemservice.controller;
 
+import lk.fresh.itemservice.dto.ItemDTO;
 import lk.fresh.itemservice.service.ItemService;
+import lk.fresh.itemservice.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,5 +30,11 @@ public class ItemController {
             throw new RuntimeException(e);
         }
         return "Uploaded";
+    }
+
+    @PostMapping
+    public ResponseUtil saveItem(@RequestBody ItemDTO itemDTO) {
+        itemService.saveItem(itemDTO);
+        return new ResponseUtil("OK", "Successfully Added..!", "");
     }
 }
