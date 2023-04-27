@@ -1,4 +1,4 @@
-package lk.fresh.orderservice.dot;
+package lk.fresh.orderservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +23,5 @@ public class OrderDTO {
     private String customerId;
     private LocalDate date;
     private LocalTime time;
-    private String location;
-    private String status;
     private BigDecimal cost;
 }
