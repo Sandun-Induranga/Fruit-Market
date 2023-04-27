@@ -38,6 +38,11 @@ public class ItemController {
         return new ResponseUtil("OK", "Successfully Added..!", "");
     }
 
+    @GetMapping
+    public ResponseUtil getAllItems(){
+        return new ResponseUtil("OK", "Successfully Loaded..!", itemService.getAllItems());
+    }
+
     @PutMapping
     public ResponseUtil updateItem(@RequestBody ItemDTO itemDTO) {
         itemService.updateItem(itemDTO);
