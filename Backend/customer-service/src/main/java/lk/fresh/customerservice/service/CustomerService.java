@@ -12,4 +12,5 @@ import java.util.List;
 public interface CustomerService {
     public void saveCustomer(CustomerDTO customerDTO) throws RuntimeException;
     public List<CustomerDTO> getAllCustomers() throws RuntimeException;
+    public void updateCustomer(CustomerDTO customerDTO) throws RuntimeException;
 }

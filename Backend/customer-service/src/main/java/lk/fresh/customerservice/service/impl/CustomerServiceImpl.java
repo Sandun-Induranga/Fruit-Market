@@ -38,4 +38,10 @@ public class CustomerServiceImpl implements CustomerService {
         return mapper.map(customerRepo.findAll(), new TypeToken<ArrayList<CustomerDTO>>() {
         }.getType());
     }
+
+    @Override
+    public void updateCustomer(CustomerDTO customerDTO) throws RuntimeException {
+        if (customerRepo.existsById(customerDTO.getNic())) customerRepo.save(mapper.map(customerDTO, Customer.class));
+        else throw new RuntimeException("Invalid Customer..!");
+    }
 }
