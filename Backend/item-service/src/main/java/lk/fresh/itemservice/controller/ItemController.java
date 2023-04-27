@@ -20,7 +20,7 @@ public class ItemController {
     @Autowired
     ItemService itemService;
 
-    @PutMapping
+    @PutMapping("/item")
     public String handleFileUpload(@RequestParam("file") MultipartFile file) {
 
         System.out.println("You successfully uploaded " + file.getOriginalFilename() + "!");
@@ -36,5 +36,11 @@ public class ItemController {
     public ResponseUtil saveItem(@RequestBody ItemDTO itemDTO) {
         itemService.saveItem(itemDTO);
         return new ResponseUtil("OK", "Successfully Added..!", "");
+    }
+
+    @PutMapping
+    public ResponseUtil updateItem(@RequestBody ItemDTO itemDTO){
+        itemService.updateItem(itemDTO);
+        return new ResponseUtil("OK", "Successfully Updated..!", "");
     }
 }
