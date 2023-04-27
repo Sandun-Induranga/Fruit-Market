@@ -12,6 +12,6 @@ import java.io.IOException;
 
 public interface ItemService {
     public void saveFruitImage(MultipartFile file) throws RuntimeException, IOException;
-
     public void saveItem(ItemDTO itemDTO) throws RuntimeException;
+    public void updateItem(ItemDTO itemDTO) throws RuntimeException;
 }

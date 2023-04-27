@@ -46,4 +46,9 @@ public class ItemServiceImpl implements ItemService {
     public void saveItem(ItemDTO itemDTO) throws RuntimeException {
         itemRepo.save(mapper.map(itemDTO, Item.class));
     }
+
+    @Override
+    public void updateItem(ItemDTO itemDTO) throws RuntimeException {
+
+    }
 }
