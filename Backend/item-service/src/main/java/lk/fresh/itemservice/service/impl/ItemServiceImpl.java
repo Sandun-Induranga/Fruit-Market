@@ -47,7 +47,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void saveItem(ItemDTO itemDTO) throws RuntimeException {
-        itemRepo.save(mapper.map(itemDTO, Item.class));
+        if (!itemRepo.existsById(itemDTO.getCode())) itemRepo.save(mapper.map(itemDTO, Item.class));
+        else throw new RuntimeException("Item Already Exists..!");
     }
 
     @Override
@@ -58,6 +59,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void updateItem(ItemDTO itemDTO) throws RuntimeException {
-
+        if (itemRepo.existsById(itemDTO.getCode())) itemRepo.save(mapper.map(itemDTO, Item.class));
+        else throw new RuntimeException("Invalid Item..!");
     }
 }
