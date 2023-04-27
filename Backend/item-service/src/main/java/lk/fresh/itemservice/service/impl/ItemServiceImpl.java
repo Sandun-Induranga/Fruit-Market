@@ -1,6 +1,11 @@
 package lk.fresh.itemservice.service.impl;
 
+import lk.fresh.itemservice.dto.ItemDTO;
+import lk.fresh.itemservice.entity.Item;
+import lk.fresh.itemservice.repo.ItemRepo;
 import lk.fresh.itemservice.service.ItemService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +21,13 @@ import java.io.IOException;
 @Service
 @Transactional
 public class ItemServiceImpl implements ItemService {
+
+    @Autowired
+    ItemRepo itemRepo;
+
+    @Autowired
+    ModelMapper mapper;
+
     @Override
     public void saveFruitImage(MultipartFile file) throws RuntimeException {
         try {
@@ -28,5 +40,10 @@ public class ItemServiceImpl implements ItemService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void saveItem(ItemDTO itemDTO) throws RuntimeException {
+        itemRepo.save(mapper.map(itemDTO, Item.class));
     }
 }
