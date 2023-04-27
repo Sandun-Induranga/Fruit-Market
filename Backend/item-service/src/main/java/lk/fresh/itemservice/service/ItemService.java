@@ -20,4 +20,6 @@ public interface ItemService {
 
     public void updateItem(ItemDTO itemDTO) throws RuntimeException;
 
+    public void deleteItem(String code) throws RuntimeException;
+
 }

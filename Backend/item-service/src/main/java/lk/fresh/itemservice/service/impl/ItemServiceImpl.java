@@ -62,4 +62,9 @@ public class ItemServiceImpl implements ItemService {
         if (itemRepo.existsById(itemDTO.getCode())) itemRepo.save(mapper.map(itemDTO, Item.class));
         else throw new RuntimeException("Invalid Item..!");
     }
+
+    @Override
+    public void deleteItem(String code) throws RuntimeException {
+        itemRepo.deleteById(code);
+    }
 }
