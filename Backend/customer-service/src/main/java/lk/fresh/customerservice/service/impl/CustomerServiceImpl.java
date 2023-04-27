@@ -44,4 +44,9 @@ public class CustomerServiceImpl implements CustomerService {
         if (customerRepo.existsById(customerDTO.getNic())) customerRepo.save(mapper.map(customerDTO, Customer.class));
         else throw new RuntimeException("Invalid Customer..!");
     }
+
+    @Override
+    public void deleteCustomer(String id) throws RuntimeException {
+
+    }
 }
